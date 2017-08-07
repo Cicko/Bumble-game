@@ -1,0 +1,63 @@
+/**
+ * @author Rudolf Cicko
+ * @contact alu0100824780@ull.edu.es
+ * @date 30-04-2016
+ */
+package es.ull.esit.pai.p12_disparos;
+
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+/**
+ * Information panel
+ * @author Rudolf Cicko
+ * 
+ */
+public class InformationPanel extends JPanel {
+	private ShooterPanel mainPanel;
+	private JLabel initialSpeedLabel;
+	private JLabel actualVelocityLabel;
+	private JLabel actualTimeLabel;
+	private JLabel actualPositionLabel;
+	private JLabel yMaxLabel;
+	
+	public InformationPanel (ParabolicPanel aPanel) {
+		setLayout(new GridLayout(0, 1));
+		Border paddingBorder = BorderFactory.createEmptyBorder(10,10,10,10);
+		Border border = BorderFactory.createLineBorder(Color.BLACK);
+		setBorder(BorderFactory.createCompoundBorder(border,paddingBorder));
+		mainPanel = aPanel;
+		initialSpeedLabel = new JLabel ();
+		actualVelocityLabel = new JLabel ();
+		actualTimeLabel = new JLabel ();
+		actualPositionLabel = new JLabel ();
+		yMaxLabel = new JLabel ();
+		
+		add (initialSpeedLabel);
+		add (actualVelocityLabel);
+		add (actualTimeLabel);
+		add (actualPositionLabel);
+		add (yMaxLabel);
+		
+		updateValues ();
+	}
+	
+	/**
+	 * La información mostrada será del último lanzamiento.
+	 */
+	public void updateValues () {
+		TiroParabolico lastLaunch = mainPanel.getLastLaunch();
+		if (lastLaunch != null) {
+			initialSpeedLabel.setText("Initial Speed: " + lastLaunch.getInitialSpeed() + " m / s.");
+			actualVelocityLabel.setText("Actual Velocity: (" + lastLaunch.getActualVelocity().x + ", " + (0 - lastLaunch.getActualVelocity().y) + ")");          
+			actualTimeLabel.setText("Actual time: " + lastLaunch.getActualTime() + " seconds.");
+			actualPositionLabel.setText("Actual position: (" + lastLaunch.getActualPos().x + ", " + (0 - lastLaunch.getActualPos().y) + ")");
+			yMaxLabel.setText("y-Max: " + (0 - lastLaunch.getYMax()) + " meters.");
+		}
+	}
+}

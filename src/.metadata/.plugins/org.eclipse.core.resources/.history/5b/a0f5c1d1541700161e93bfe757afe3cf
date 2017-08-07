@@ -1,0 +1,20 @@
+/**
+ * @author Rudolf Cicko
+ * @email alu0100824780@ull.edu.es
+ * @description Main frame 
+ * @subject Programación de aplicaciones interactivas
+ */
+package es.ull.esit.pai.p12_disparos;
+
+import javax.swing.JFrame;
+
+public class ShooterFrame extends JFrame {
+	private ShooterPanel panel = new ShooterPanel();
+	
+	
+	public ShooterFrame () {
+		add (panel);
+		addMouseMotionListener(panel);
+		addMouseListener(panel);
+	}
+}
