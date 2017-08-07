@@ -1,8 +1,10 @@
 ## Bumble Game written in Java
 
-To execute this game you have to have installed jre.
+#### This project was created in Eclipse
 
-```bash
+To execute this game you have to have installed Java SE Runtime Environment.
+
+```
 
 $ java -jar BumbleGame.jar
 ```
