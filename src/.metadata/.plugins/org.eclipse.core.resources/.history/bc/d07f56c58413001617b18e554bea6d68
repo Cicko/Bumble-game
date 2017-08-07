@@ -1,9 +1,0 @@
-package es.ull.esit.pai.p12_disparos;
-
-import javax.swing.JFrame;
-
-public class ShooterFrame extends JFrame {
-	public ShooterFrame () {
-		
-	}
-}
