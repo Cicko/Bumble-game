@@ -12,7 +12,6 @@ $ java -jar BumbleGame.jar
 ![screenshot](BumbleGame/src/screenshot.jpg)
 
 
-
 ### How to play
 
  - With the mouse you move the stick that grabs the ball.
